@@ -28,42 +28,46 @@ def get_all_treks(request, id=None):
 def add_trek(request):
     pass
 
+
 @api_view([""])
 @permission_classes((IsAuthenticated,))
 def delete_trek(request):
     pass
+
 
 @api_view([""])
 @permission_classes((IsAuthenticated,))
 def join_to_trek(request):
     pass
 
+
 @api_view([""])
 @permission_classes((IsAuthenticated,))
 def rejoin_from_trek(request):
     pass
+
 
 @api_view([""])
 @permission_classes((IsAuthenticated,))
 def get_comments(request):
     pass
 
+
 @api_view([""])
 @permission_classes((IsAuthenticated,))
 def add_comment(request):
     pass
+
 
 @api_view([""])
 @permission_classes((IsAuthenticated,))
 def delete_comment(request):
     pass
 
-#till here 
+# till here
 
 
-
-
-# Here the examples from my previous code. Use it for our project! 
+# Here the examples from my previous code. Use it for our project!
 @api_view(["GET"])
 @permission_classes((IsAuthenticated,))
 def get_all_medicines(request, id=None):
