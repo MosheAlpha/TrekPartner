@@ -1,26 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from versatileimagefield.fields import VersatileImageField, PPOIField
-
-# ****Here we should add all models that we need****
-# ********   
-
-
-
-# Here the examples from my previous code. Use it for our project!   
-class Company(models.Model):
-    name = models.CharField(max_length=255)
-    url = models.TextField()
-
-    def __str__(self):
-        return self.name
-
-
-class Dosage(models.Model):
-    dose = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.dose
 
 
 class Category(models.Model):
@@ -29,45 +8,21 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
-class Image(models.Model):
-    name = models.CharField(max_length=255)
-    image = VersatileImageField(
-        'Image', upload_to='images/', ppoi_field='image_ppoi')
-    image_ppoi = PPOIField()
-
-    def __str__(self):
-        return self.name
-
-
-class Medicine(models.Model):
+class Trek(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    category = models.ManyToManyField(Category, related_name='medicines')
-    image = models.ManyToManyField(Image, related_name='medicines')
-    company = models.ManyToManyField(
-        Company,  related_name='medicines', related_query_name='medicine')
-    dosage = models.ManyToManyField(
-        Dosage,  related_name='medicines', related_query_name='medicine')
-    price = models.DecimalField(max_digits=9, decimal_places=2)
-    url = models.TextField()
+    category = models.ManyToManyField(Category, related_name='treks')
+    location = models.TextField()
+    letgth = models.TextField()
+    image_url = models.TextField()
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
-
-    class Meta:
-        ordering = ['-created']
-
-    def __str__(self):
-        return self.name
-
 
 class Comment(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
-    medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE,
-                                 related_name='comments', related_query_name='comment')
-    user = models.ForeignKey(User, on_delete=models.CASCADE,
-                             related_name='comments', related_query_name='comment')
+    trek = models.ForeignKey(Trek, on_delete=models.CASCADE,related_name='comments', related_query_name='comment')
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='comments', related_query_name='comment')
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
 
@@ -75,9 +30,3 @@ class Comment(models.Model):
         return self.title
 
 
-class Cart(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='cart')
-    products = models.ManyToManyField(Medicine, related_name='cart', blank=True)
-
-    def __str__(self):
-        return self.user.first_name

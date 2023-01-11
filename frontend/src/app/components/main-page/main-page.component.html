@@ -13,7 +13,7 @@
             <i class="fa fa-instagram" aria-hidden="true"></i>
         </a>
     </div>
-    <!-- header section strats -->
+    <!-- header section starts -->
     <header class="header_section">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -35,7 +35,7 @@
                             <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/treks"> Watches </a>
+                            <a class="nav-link" href="/treks"> Treks </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about"> About </a>
@@ -70,14 +70,14 @@
                             <div class="col-md-6">
                                 <div class="detail-box">
                                     <h1>
-                                        Smart Watches
+                                        Best Treks
                                     </h1>
                                     <p>
                                         Aenean scelerisque felis ut orci condimentum laoreet. Integer nisi nisl,
                                         convallis et augue sit amet, lobortis semper quam.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="" class="btn1">
+                                        <a href="/contact" class="btn1">
                                             Contact Us
                                         </a>
                                     </div>
@@ -97,14 +97,14 @@
                             <div class="col-md-6">
                                 <div class="detail-box">
                                     <h1>
-                                        Smart Watches
+                                        Best Treks
                                     </h1>
                                     <p>
                                         Aenean scelerisque felis ut orci condimentum laoreet. Integer nisi nisl,
                                         convallis et augue sit amet, lobortis semper quam.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="" class="btn1">
+                                        <a href="/contact" class="btn1">
                                             Contact Us
                                         </a>
                                     </div>
@@ -124,14 +124,14 @@
                             <div class="col-md-6">
                                 <div class="detail-box">
                                     <h1>
-                                        Smart Watches
+                                        Best Treks
                                     </h1>
                                     <p>
                                         Aenean scelerisque felis ut orci condimentum laoreet. Integer nisi nisl,
                                         convallis et augue sit amet, lobortis semper quam.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="" class="btn1">
+                                        <a href="/contact" class="btn1">
                                             Contact Us
                                         </a>
                                     </div>
@@ -157,13 +157,17 @@
     <!-- end slider section -->
 </div>
 
+
+
+
+
 <!-- shop section -->
 
 <section class="shop_section layout_padding">
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Latest Watches
+                Latest Treks
             </h2>
         </div>
         <div class="row">
@@ -175,12 +179,12 @@
                         </div>
                         <div class="detail-box">
                             <h6>
-                                Smartwatch
+                                Trek
                             </h6>
                             <h6>
-                                Price:
+                                Length:
                                 <span>
-                                    $300
+                                    300
                                 </span>
                             </h6>
                         </div>
@@ -192,20 +196,20 @@
                     </a>
                 </div>
             </div>
-            <div class="col-sm-6 col-xl-3">
+            <div class="col-sm-6 col-xl-3" *ngFor="let number of [0,1,2,3,4, 5, 6, 7, 8, 9]; let i = index;">
                 <div class="box">
                     <a href="">
                         <div class="img-box">
-                            <img src="../../../assets/images/w2.png" alt="">
+                            <img src="{{'../../../assets/img/' + number + '.jpg'}}" alt="">
                         </div>
                         <div class="detail-box">
                             <h6>
-                                Smartwatch
+                                Trek
                             </h6>
                             <h6>
-                                Price:
+                                Length:
                                 <span>
-                                    $125
+                                    125
                                 </span>
                             </h6>
                         </div>
@@ -217,134 +221,11 @@
                     </a>
                 </div>
             </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w3.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Smartwatch
-                            </h6>
-                            <h6>
-                                Price:
-                                <span>
-                                    $110
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w4.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Smartwatch
-                            </h6>
-                            <h6>
-                                Price:
-                                <span>
-                                    $145
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w5.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Smartwatch
-                            </h6>
-                            <h6>
-                                Price:
-                                <span>
-                                    $195
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6  col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w6.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Smartwatch
-                            </h6>
-                            <h6>
-                                Price:
-                                <span>
-                                    $170
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w1.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Smartwatch
-                            </h6>
-                            <h6>
-                                Price:
-                                <span>
-                                    $230
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
+
         </div>
         <div class="btn-box">
-            <a href="">
+            <a href="/treks">
                 View All
             </a>
         </div>
@@ -379,7 +260,7 @@
                         hidden in
                         the middle of text. All
                     </p>
-                    <a href="">
+                    <a href="/about">
                         Read More
                     </a>
                 </div>
@@ -396,7 +277,7 @@
     <div class="container">
         <div class="heading_container">
             <h2>
-                Features Of Our Watches
+                Features Of Our Treks
             </h2>
             <p>
                 Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -654,25 +535,25 @@
             <div class="col-md-6 col-lg-3 footer-col">
                 <div class="footer_contact">
                     <h4>
-                        Reach at..
+                        Reach us at..
                     </h4>
                     <div class="contact_link_box">
                         <a href="">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <span>
-                                Location
+                                Bet Shemesh, Israel
                             </span>
                         </a>
                         <a href="">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             <span>
-                                Call +01 1234567890
+                                Call +972587980098
                             </span>
                         </a>
                         <a href="">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                             <span>
-                                demo@gmail.com
+                                folmoshe@gmail.com
                             </span>
                         </a>
                     </div>
@@ -701,11 +582,10 @@
         </div>
         <div class="footer-info">
             <p>
-                &copy; <span id="displayYear"></span> All Rights Reserved By 
-                <a href="https://html.design/">Free Html Templates</a>
+                &copy; <span id="displayYear"></span> All Rights Reserved By
+                <a href="https://github.com/MosheAlpha/TrekPartner">Moshe Shlomi</a>
             </p>
         </div>
     </div>
 </footer>
 <!-- footer section -->
-

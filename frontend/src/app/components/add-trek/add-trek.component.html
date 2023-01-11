@@ -1,6 +1,7 @@
 <div class="sub_page">
 
     <div class="hero_area">
+
         <!-- header section starts -->
         <header class="header_section">
             <div class="container-fluid">
@@ -26,9 +27,9 @@
                                 <a class="nav-link" href="/treks"> Treks </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="/about"> About </a>
+                                <a class="nav-link" href="/about"> About </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="/contact">Contact Us</a>
                             </li>
                         </ul>
@@ -50,43 +51,49 @@
         <!-- end header section -->
     </div>
 
-    <!-- about section -->
+    <!-- contact section -->
 
-    <section class="about_section layout_padding">
-        <div class="container  ">
+    <section class="contact_section layout_padding">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-5 ">
-                    <div class="img-box">
-                        <img src="../../../assets/images/about-img.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-7">
-                    <div class="detail-box">
+                <div class="col-md-6">
+                    <div class="form_container">
                         <div class="heading_container">
                             <h2>
-                                About Us
+                                Add new Trek
                             </h2>
                         </div>
-                        <p>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration
-                            in some form, by injected humour, or randomised words which don't look even slightly
-                            believable. If you
-                            are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
-                            embarrassing hidden in
-                            the middle of text. All
-                        </p>
-                        <a href="">
-                            Read More
-                        </a>
+                        <form action="">
+                            <div>
+                                <input type="text" placeholder="Trek Name " />
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Trek Length" />
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Trek Location" />
+                            </div>
+                            <div>
+                                <input type="text" class="message-box" placeholder="Message" />
+                            </div>
+                            <div class="d-flex ">
+                                <button>
+                                    ADD
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-box">
+                        <img src="../../../assets/images/contact-img.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- end about section -->
-    <hr>
+    <!-- end contact section -->
 
     <!-- footer section -->
     <footer class="footer_section">
@@ -174,4 +181,5 @@
         </div>
     </footer>
     <!-- footer section -->
+
 </div>
