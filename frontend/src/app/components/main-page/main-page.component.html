@@ -157,6 +157,10 @@
     <!-- end slider section -->
 </div>
 
+
+
+
+
 <!-- shop section -->
 
 <section class="shop_section layout_padding">
@@ -192,11 +196,11 @@
                     </a>
                 </div>
             </div>
-            <div class="col-sm-6 col-xl-3">
+            <div class="col-sm-6 col-xl-3" *ngFor="let number of [0,1,2,3,4, 5, 6, 7, 8, 9]; let i = index;">
                 <div class="box">
                     <a href="">
                         <div class="img-box">
-                            <img src="../../../assets/images/w2.png" alt="">
+                            <img src="{{'../../../assets/img/' + number + '.jpg'}}" alt="">
                         </div>
                         <div class="detail-box">
                             <h6>
@@ -218,131 +222,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w3.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Trek
-                            </h6>
-                            <h6>
-                                Length:
-                                <span>
-                                    110
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w4.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Trek
-                            </h6>
-                            <h6>
-                                Length:
-                                <span>
-                                    145
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w5.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Trek
-                            </h6>
-                            <h6>
-                                Length:
-                                <span>
-                                    195
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6  col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w6.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Trek
-                            </h6>
-                            <h6>
-                                Length:
-                                <span>
-                                    170
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <div class="box">
-                    <a href="">
-                        <div class="img-box">
-                            <img src="../../../assets/images/w1.png" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Trek
-                            </h6>
-                            <h6>
-                                Length:
-                                <span>
-                                    230
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
         </div>
         <div class="btn-box">
             <a href="/treks">
