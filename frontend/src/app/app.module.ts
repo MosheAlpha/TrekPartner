@@ -21,7 +21,7 @@ import { RegisterComponent } from './components/register/register.component';
     TreksComponent,
     TrekInfoComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
