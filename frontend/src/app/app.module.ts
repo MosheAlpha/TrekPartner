@@ -11,6 +11,7 @@ import { TreksComponent } from './components/treks/treks.component';
 import { TrekInfoComponent } from './components/trek-info/trek-info.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AddTrekComponent } from './components/add-trek/add-trek.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RegisterComponent } from './components/register/register.component';
     TrekInfoComponent,
     LoginComponent,
     RegisterComponent,
+    AddTrekComponent,
   ],
   imports: [
     BrowserModule,
