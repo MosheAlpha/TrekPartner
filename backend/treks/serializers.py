@@ -1,4 +1,4 @@
-from .models import Medicine, Category, Image, Comment, Dosage, Company, Cart
+from .models import Medicine, Category,  Comment, Dosage, Company, Cart
 from rest_framework import serializers
 
 # ****Here we should add all serializers that we need****
@@ -35,7 +35,6 @@ class MedicineSerializer(serializers.ModelSerializer):
     category = CategorySerializer(many=True, required=False)
     dosage = DosageSerializer(many=True, required=False)
     comments = CommentSerializer(many=True, required=False)
-    image = ImageSerializer(many=True, required=False)
     company = CompanySerializer(many=True, required=False)
 
     class Meta:

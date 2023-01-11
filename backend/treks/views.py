@@ -1,5 +1,5 @@
 from .serializers import MedicineSerializer, CartSerializer
-from .models import Medicine, Image, Cart
+from .models import Medicine, Cart
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
