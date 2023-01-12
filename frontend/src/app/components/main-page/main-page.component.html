@@ -17,7 +17,7 @@
     <header class="header_section">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <a class="navbar-brand" href="/main">
+                <a class="navbar-brand" routerLink="/main">
                     <span>
                         Trek Partner
                     </span>
@@ -32,23 +32,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" routerLink="/main">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/treks"> Treks </a>
+                            <a class="nav-link" routerLink="/treks"> Treks </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about"> About </a>
+                            <a class="nav-link" routerLink="/about"> About </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact Us</a>
+                            <a class="nav-link" routerLink="/contact">Contact Us</a>
                         </li>
                     </ul>
                     <div class="user_option-box">
                         <a href="">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
-                        <a href="/addTrek">
+                        <a routerLink="/addTrek">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
                         <a href="">
@@ -79,7 +79,7 @@
 
                                     </p>
                                     <div class="btn-box">
-                                        <a href="/treks" class="btn1">
+                                        <a routerLink="/treks" class="btn1">
                                             More info
                                         </a>
                                     </div>
@@ -108,7 +108,7 @@
                                         the UK and abroad.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="/treks" class="btn1">
+                                        <a routerLink="/treks" class="btn1">
                                             More info
                                         </a>
                                     </div>
@@ -137,7 +137,7 @@
                                         Muscles.
                                     </p>
                                     <div class="btn-box">
-                                        <a href="/treks" class="btn1">
+                                        <a routerLink="/treks" class="btn1">
                                             More info
                                         </a>
                                     </div>
@@ -204,7 +204,7 @@
             </div>
             <div class="col-sm-6 col-xl-3" *ngFor="let number of [1,2,3,4, 5, 6, 7, 8, 9]; let i = index;">
                 <div class="box">
-                    <a href="/trek">
+                    <a routerLink="/trek">
                         <div class="img-box">
                             <img src="{{'../../../assets/img/' + number + '.jpg'}}" alt="">
                         </div>
@@ -231,7 +231,7 @@
 
         </div>
         <div class="btn-box">
-            <a href="/treks">
+            <a routerLink="/treks">
                 View All
             </a>
         </div>
@@ -247,27 +247,26 @@
         <div class="row">
             <div class="col-md-6 col-lg-5 ">
                 <div class="img-box">
-                    <img src="../../../assets/images/about-img.png" alt="">
+                    <img src="../../../assets/img/selfie.jpeg" alt="">
                 </div>
             </div>
             <div class="col-md-6 col-lg-7">
                 <div class="detail-box">
                     <div class="heading_container">
                         <h2>
-                            About Us
+                            About Me
                         </h2>
                     </div>
                     <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration
-                        in some form, by injected humour, or randomised words which don't look even slightly believable.
-                        If you
-                        are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
-                        hidden in
-                        the middle of text. All
+                        I am very happy to finish my B Sc. of Computer science degree at Ashkelon College. During my
+                        studies
+                        many professors helped and supported me and it really paid off.
+                        I gained a lot of experience and knowledge in the field of computers and I am already
+                        looking forward to working in the field I have gained. <br>
+                        Thanks to everyone who was there and helped me!
                     </p>
-                    <a href="/about">
-                        Read More
+                    <a routerLink="/contact">
+                        Contact me
                     </a>
                 </div>
             </div>
@@ -283,24 +282,31 @@
     <div class="container">
         <div class="heading_container">
             <h2>
-                Features Of Our Treks
+                Benefits of having Outside Trek
             </h2>
             <p>
-                Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+                Going for a daily walk offers significant mental and physical health benefits. And although you can
+                certainly walk on a treadmill to get your steps in, walking outdoors offers even greater benefits. If
+                you live here in Florida or another area where weather permits, lacing up your sneakers and going for a
+                daily walk outside can go a long way toward helping you reach your health and wellness goals. </p>
         </div>
         <div class="row">
             <div class="col-sm-6 col-lg-3">
                 <div class="box">
                     <div class="img-box">
-                        <img src="../../../assets/images/f1.png" alt="">
+                        <img src="../../../assets/img/vitamin.png" alt="">
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Fitness Tracking
+                            You’ll increase your vitamin D levels
                         </h5>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            Walking outside exposes your skin to sunlight, which triggers your body to produce more
+                            vitamin D. Vitamin D deficiencies are common — even in sunny states like Florida — and can
+                            contribute to many diseases including Alzheimer’s disease, heart disease, and prostate
+                            cancer. Low vitamin D levels are also linked to depression, frequent illness, fatigue, back
+                            pain, slow wound healing, and muscle pain. Spend some time in the sun every day to keep your
+                            vitamin D levels up — just don’t let yourself get burned.
                         </p>
                         <a href="">
                             <span>
@@ -314,14 +320,16 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="box">
                     <div class="img-box">
-                        <img src="../../../assets/images/f2.png" alt="">
+                        <img src="../../../assets/img/mind.png" alt="">
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Alerts & Notifications
+                            Improved Concentration
                         </h5>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            Spending time outdoors with natural scenery has actually been proven to improve brain
+                            function such as concentration. In fact, one study took a group of children with ADHD and
+                            compared how well they performed after they were split into two groups.
                         </p>
                         <a href="">
                             <span>
@@ -335,14 +343,18 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="box">
                     <div class="img-box">
-                        <img src="../../../assets/images/f3.png" alt="">
+                        <img src="../../../assets/img/stress.png" alt="">
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Messages
+                            Stress Reduction
                         </h5>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            So many people are working inside of a building all day, getting stressed out by a variety
+                            of factors in their work place. Going outside can help reduce this stress. Scientists have
+                            discovered physiological evidence that suggests spending time in nature reduces stress, such
+                            as observed lowered heart rates and less time spent thinking about problems and/or
+                            insecurities.
                         </p>
                         <a href="">
                             <span>
@@ -356,14 +368,18 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="box">
                     <div class="img-box">
-                        <img src="../../../assets/images/f4.png" alt="">
+                        <img src="../../../assets/img/air.png" alt="">
                     </div>
                     <div class="detail-box">
                         <h5>
-                            Bluetooth
+                            Getting Fresh Air
                         </h5>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                            I’m sure you’ve heard this expression at some point. Getting fresh air allegedly helps a
+                            person feel better. However, not many people know what getting fresh air does for the brain.
+                            Oxygen is absolutely essential in maintaining healthy brain function, growth, and healing.
+                            In fact, the brain uses about three times as much oxygen for healthy neuron function, as
+                            muscles do.
                         </p>
                         <a href="">
                             <span>
@@ -374,11 +390,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="btn-box">
-            <a href="">
-                View More
-            </a>
         </div>
     </div>
 </section>
@@ -420,7 +431,7 @@
             </div>
             <div class="col-md-6">
                 <div class="img-box">
-                    <img src="../../../assets/images/contact-img.jpg" alt="">
+                    <img src="../../../assets/img/contact-img.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -442,7 +453,7 @@
                 <div class="item">
                     <div class="box">
                         <div class="img-box">
-                            <img src="../../../assets/images/c1.jpg" alt="">
+                            <img src="../../../assets/img/c1.jpg" alt="">
                         </div>
                         <div class="detail-box">
                             <div class="client_info">
@@ -474,7 +485,7 @@
                 <div class="item">
                     <div class="box">
                         <div class="img-box">
-                            <img src="../../../assets/images/c2.jpg" alt="">
+                            <img src="../../../assets/img/c2.jpg" alt="">
                         </div>
                         <div class="detail-box">
                             <div class="client_info">

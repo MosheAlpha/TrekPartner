@@ -313,6 +313,7 @@ a:focus {
       font-weight: bold;
       margin-bottom: 20px;
     }
+    
     .btn-box {
       display: flex;
       margin: 0 -5px;
@@ -457,6 +458,7 @@ a:focus {
     img {
       width: 100%;
       max-width: 375px;
+      border-radius: 40px;
     }
   }
 
@@ -509,11 +511,19 @@ a:focus {
 
     .detail-box {
       margin-top: 15px;
+      min-height: 100px;
 
       h5 {
         font-weight: bold;
         position: relative;
       }
+
+      // p, h5{
+      //   display: -webkit-box;
+      //   -webkit-box-orient: vertical;
+      //   -webkit-line-clamp: 6;
+      //   overflow: hidden;
+      // }
 
       a {
         color: inherit;
