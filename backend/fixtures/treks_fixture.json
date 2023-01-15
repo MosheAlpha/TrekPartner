@@ -1,0 +1,36 @@
+[
+    {
+        "model": "treks.category",
+        "pk": "1",
+        "fields": {
+            "name": "Easy"
+        }
+    },
+    {
+        "model": "treks.category",
+        "pk": "2",
+        "fields": {
+            "name": "Middle"
+        }
+    },
+    {
+        "model": "treks.category",
+        "pk": "3",
+        "fields": {
+            "name": "Professional"
+        }
+    },
+    {
+        "model": "treks.trek",
+        "pk": "1",
+        "fields": {
+            "name": "מסלול הארץ",
+            "description": "תיאור המסלול",
+            "location": "כל הארץ",
+            "length": "1.2 קמ",
+            "category": [1],
+            "created": "2013-01-29",
+            "updated": "2013-01-29"
+        }
+    }
+]

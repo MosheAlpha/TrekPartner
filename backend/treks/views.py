@@ -1,4 +1,5 @@
-# from .serializers import TrekSerializer, CartSerializer
+from django.http import HttpResponse
+from .serializers import TrekSerializer, CommentSerializer
 from .models import Trek, Comment
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
@@ -10,40 +11,49 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
 
 
-# ****Here we should add all functions that we need****
-# @api_view([""])
-# @permission_classes((IsAuthenticated,))
-# def get_all_treks(request, id=None):
-#     if id == None:
-#         data = Treks.objects.all()
-#         deserialized_data = TreksSerializer(data, many=True)
-#     else:
-#         data = get_object_or_404(Treks, pk=id)
-#         deserialized_data = TreksSerializer(data)
-#     return Response(deserialized_data.data, status=HTTP_200_OK)
-
-
-@api_view([""])
+@api_view(["GET"])
 @permission_classes((IsAuthenticated,))
-def get_all_treks(request, id=None):
-    pass
+def get_all_treks(request, trek_id=None):
+    if trek_id == None:
+        data = Trek.objects.all()
+        deserialized_data = TrekSerializer(data, many=True)
+    else:
+        data = get_object_or_404(Trek, pk=trek_id)
+        deserialized_data = TrekSerializer(data)
+    return Response(deserialized_data.data, status=HTTP_200_OK)
 
-@api_view([""])
+
+@api_view(["POST"])
 @permission_classes((IsAuthenticated,))
 def add_trek(request):
-    pass
+    data_deserialized = TrekSerializer(data=request.data)
+    if data_deserialized.is_valid():
+        new_item = data_deserialized.create(data_deserialized.data)
+        new_item.save()
+        return Response(data_deserialized.data, status=200)
+    else:
+        return Response.status_code(500)
 
 
-@api_view([""])
+@api_view(["POST"])
 @permission_classes((IsAuthenticated,))
-def delete_trek(request):
-    pass
+def delete_trek(request, trek_id):
+    trek_to_remove = get_object_or_404(Trek, pk=trek_id)
+    trek_to_remove.delete()
+    return Response(status=HTTP_200_OK)
+    
 
 
-@api_view([""])
+@api_view(["POST"])
 @permission_classes((IsAuthenticated,))
-def join_to_trek(request):
-    pass
+def join_to_trek(request, trek_id):
+    if request.user.is_authenticated:
+        cur_user = request.user
+        cur_trek = get_object_or_404(Trek, pk=trek_id)
+        cur_trek
+        return Response(status=HTTP_200_OK)
+    else:
+        return Response.status_code(500)
 
 
 @api_view([""])
@@ -52,10 +62,12 @@ def rejoin_from_trek(request):
     pass
 
 
-@api_view([""])
+@api_view(["GET"])
 @permission_classes((IsAuthenticated,))
-def get_comments(request):
-    pass
+def get_comments(request, trek_id):
+    data = Comment.objects.filter(trek__id=trek_id)
+    deserialized_data = CommentSerializer(data, many=True)
+    return Response(deserialized_data.data, status=HTTP_200_OK)
 
 
 @api_view([""])
