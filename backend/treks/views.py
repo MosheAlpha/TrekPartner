@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, QueryDict
 from .serializers import TrekSerializer, CommentSerializer
 from .models import Trek, Comment
 from django.contrib.auth.models import User
@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
 
 
+# done
 @api_view(["GET"])
 @permission_classes((IsAuthenticated,))
 def get_all_treks(request, trek_id=None):
@@ -22,7 +23,7 @@ def get_all_treks(request, trek_id=None):
         deserialized_data = TrekSerializer(data)
     return Response(deserialized_data.data, status=HTTP_200_OK)
 
-
+# done
 @api_view(["POST"])
 @permission_classes((IsAuthenticated,))
 def add_trek(request):
@@ -35,31 +36,39 @@ def add_trek(request):
         return Response.status_code(500)
 
 
+# done
 @api_view(["POST"])
 @permission_classes((IsAuthenticated,))
 def delete_trek(request, trek_id):
     trek_to_remove = get_object_or_404(Trek, pk=trek_id)
     trek_to_remove.delete()
     return Response(status=HTTP_200_OK)
-    
 
 
 @api_view(["POST"])
 @permission_classes((IsAuthenticated,))
 def join_to_trek(request, trek_id):
-    if request.user.is_authenticated:
-        cur_user = request.user
+    cur_user = request.user
+    if cur_user.is_authenticated:
         cur_trek = get_object_or_404(Trek, pk=trek_id)
-        cur_trek
+        cur_trek.participants.add(cur_user)
+        cur_trek.save()
         return Response(status=HTTP_200_OK)
     else:
         return Response.status_code(500)
 
 
-@api_view([""])
+@api_view(["POST"])
 @permission_classes((IsAuthenticated,))
-def rejoin_from_trek(request):
-    pass
+def rejoin_from_trek(request, trek_id):
+    cur_user = request.user
+    if cur_user.is_authenticated:
+        cur_trek = get_object_or_404(Trek, pk=trek_id)
+        cur_trek.participants.remove(cur_user)
+        cur_trek.save()
+        return Response(status=HTTP_200_OK)
+    else:
+        return Response.status_code(500)
 
 
 @api_view(["GET"])
@@ -70,75 +79,27 @@ def get_comments(request, trek_id):
     return Response(deserialized_data.data, status=HTTP_200_OK)
 
 
-@api_view([""])
+@api_view(["POST"])
 @permission_classes((IsAuthenticated,))
-def add_comment(request):
-    pass
+def add_comment(request, trek_id):
+    if request.user.is_authenticated:
+        data_deserialized = CommentSerializer(data=request.data)
+        if data_deserialized.is_valid():
+            new_item = data_deserialized.create(data_deserialized.data)
+            new_item.user.add(request.user)
+            new_item.save()
+            cur_trek = get_object_or_404(Trek, pk=trek_id)
+            cur_trek.comments.add(new_item)
+            cur_trek.save()
+            return Response(status=HTTP_200_OK)
+        else:
+            return Response.status_code(500)
 
 
-@api_view([""])
+@api_view(["GET"])
 @permission_classes((IsAuthenticated,))
-def delete_comment(request):
-    pass
+def delete_comment(request, comment_id):
+    comment_to_remove = get_object_or_404(Comment, pk=comment_id)
+    comment_to_remove.delete()
+    return Response(status=HTTP_200_OK)
 
-# till here
-
-
-# Here the examples from my previous code. Use it for our project!
-# @api_view(["GET"])
-# @permission_classes((IsAuthenticated,))
-# def get_all_Treks(request, id=None):
-#     if id == None:
-#         data = Trek.objects.all()
-#         deserialized_data = TrekSerializer(data, many=True)
-#     else:
-#         data = get_object_or_404(Trek, pk=id)
-#         deserialized_data = TrekSerializer(data)
-#     return Response(deserialized_data.data, status=HTTP_200_OK)
-
-
-# @api_view(["GET"])
-# @permission_classes((IsAuthenticated,))
-# def get_all_images(request):
-#     data = Image.objects.all()
-#     deserialized_data = ImageSerializer(data, many=True)
-#     return Response(deserialized_data.data, status=HTTP_200_OK)
-
-
-# @api_view(["POST"])
-# @permission_classes((IsAuthenticated,))
-# def add_to_cart(request, product_id):
-#     our_user = get_object_or_404(User, pk=request.user.id)
-#     Trek = get_object_or_404(Trek, pk=product_id)
-
-#     if our_user.cart:
-#         our_user.cart.products.add(Trek)
-#     else:
-#         Cart.objects.create(our_user, Trek)
-
-#     user_cart = our_user.cart
-#     user_cart.save()
-
-#     return Response(status=HTTP_200_OK)
-
-
-# @api_view(["POST"])
-# @permission_classes((IsAuthenticated,))
-# def remove_from_cart(request, product_id):
-#     our_user = get_object_or_404(User, pk=request.user.id)
-#     Trek = get_object_or_404(Trek, pk=product_id)
-
-#     if our_user.cart:
-#         our_user.cart.products.remove(Trek)
-
-#     user_cart = our_user.cart
-#     user_cart.save()
-#     return Response(status=HTTP_200_OK)
-
-
-# @api_view(["GET"])
-# @permission_classes((IsAuthenticated,))
-# def get_user_cart(request):
-#     data = get_object_or_404(Cart, user=request.user.id)
-#     deserialized_data = CartSerializer(data)
-#     return Response(deserialized_data.data, status=HTTP_200_OK)

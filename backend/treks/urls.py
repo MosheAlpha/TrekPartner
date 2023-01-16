@@ -14,7 +14,7 @@ urlpatterns = [
 
     path('getComments/<int:trek_id>/', views.get_comments),
     path('addComment/<int:trek_id>/', views.add_comment),
-    path('deleteComment/<int:trek_id>/<int:comment_id>/', views.delete_comment),
+    path('deleteComment/<int:comment_id>/', views.delete_comment),
 
 
 ]
