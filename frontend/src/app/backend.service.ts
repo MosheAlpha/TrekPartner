@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { LocalService } from './local-storage.service';
-import { Trek, Comment } from './trek';
+import { Trek, Comment, registerForm } from './trek';
 // import { Token } from './token';
 
 @Injectable({
@@ -49,7 +49,7 @@ export class BackendService {
   }
 
   deleteComment(trek_id: number, comment_id: number): Observable<any> {
-    return this.http.post<any>(this.URL + '/api/deleteComment/' + String(trek_id) + '/'+ String(comment_id) + '/', {})
+    return this.http.post<any>(this.URL + '/api/deleteComment/' + String(trek_id) + '/' + String(comment_id) + '/', {})
   }
 
 
@@ -62,18 +62,18 @@ export class BackendService {
 
 
 
-  // login(username: string, password: string): Observable<any> {
-  //     return this.http.post<any>(this.URL + '/auth/login/', { "username": username, "password": password })
-  // }
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(this.URL + '/auth/login/', { "username": username, "password": password })
+  }
 
-  // register(formData: registerForm): Observable<any> {
-  //     return this.http.post<any>(this.URL + '/auth/register/', formData)
-  // }
+  register(formData: registerForm): Observable<any> {
+    return this.http.post<any>(this.URL + '/auth/register/', formData)
+  }
 
-  // logout(): Observable<any> {
-  //     const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
-  //     return this.http.post<any>(this.URL + '/auth/logout_all/', {}, { headers })
-  // }
+  logout(): Observable<any> {
+      const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
+      return this.http.post<any>(this.URL + '/auth/logout_all/', {}, { headers })
+  }
 
   // getAllTreks(): Observable<any> {
   //     const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
