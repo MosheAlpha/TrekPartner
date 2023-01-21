@@ -557,6 +557,7 @@ a:focus {
 
 .contact_section {
   position: relative;
+  margin-bottom: 100px;
 .row{
   align-items: center;
 }
@@ -800,3 +801,13 @@ a:focus {
 // end footer section
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//custom image scaling
+.sml-img{
+  height: auto;
+  max-width: 50%;
+}
+.img-box{
+  text-align: center;
+}

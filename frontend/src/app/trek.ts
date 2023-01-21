@@ -2,7 +2,9 @@ export interface Trek {
     name: string,
     description: string,
     location: string,
-    length: string
+    length: string, 
+    image: string,
+    category: number
 }
 
 export interface Comment {
