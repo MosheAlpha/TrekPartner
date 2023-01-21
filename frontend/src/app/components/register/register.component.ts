@@ -40,7 +40,9 @@ export class RegisterComponent implements OnInit {
           error: error1 => { }
         })
       },
-      error: error => { }
+      error: error => {
+        window.alert("Try again with correct data at all fields!")
+      }
     })
   }
 }

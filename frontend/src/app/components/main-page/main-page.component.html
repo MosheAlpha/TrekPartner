@@ -45,13 +45,13 @@
                         </li>
                     </ul>
                     <div class="user_option-box">
-                        <a href="">
+                        <a [routerLink]="" (click)="logout()">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
-                        <a routerLink="/addTrek">
+                        <a routerLink="/addTrek" *ngIf="isLoggedIn">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
-                        <a href="">
+                        <a [routerLink]="">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -177,51 +177,27 @@
             </h2>
         </div>
         <div class="row">
-            <div class="col-md-6 ">
+        
+            <div class="col-sm-6 col-xl-3" *ngFor="let trek of userData; let i = index;">
                 <div class="box">
-                    <a href="">
+                    <a routerLink="/trek/{{trek.pk}}">
                         <div class="img-box">
-                            <img src="../../../assets/img/0.jpg" alt="">
+                            <img src="{{trek.image}}" alt="">
                         </div>
                         <div class="detail-box">
                             <h6>
-                                Trek
+                                {{trek?.name}}
                             </h6>
                             <h6>
                                 Length:
                                 <span>
-                                    300
+                                    {{trek?.length}}
                                 </span>
                             </h6>
                         </div>
                         <div class="new">
                             <span>
-                                Featured
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xl-3" *ngFor="let number of [1,2,3,4, 5, 6, 7, 8, 9]; let i = index;">
-                <div class="box">
-                    <a routerLink="/trek">
-                        <div class="img-box">
-                            <img src="{{'../../../assets/img/' + number + '.jpg'}}" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>
-                                Trek
-                            </h6>
-                            <h6>
-                                Length:
-                                <span>
-                                    125
-                                </span>
-                            </h6>
-                        </div>
-                        <div class="new">
-                            <span>
-                                New
+                                {{trek?.category[0]['name']}}
                             </span>
                         </div>
                     </a>
@@ -291,32 +267,7 @@
                 daily walk outside can go a long way toward helping you reach your health and wellness goals. </p>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <div class="box">
-                    <div class="img-box">
-                        <img src="../../../assets/img/vitamin.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            You’ll increase your vitamin D levels
-                        </h5>
-                        <p>
-                            Walking outside exposes your skin to sunlight, which triggers your body to produce more
-                            vitamin D. Vitamin D deficiencies are common — even in sunny states like Florida — and can
-                            contribute to many diseases including Alzheimer’s disease, heart disease, and prostate
-                            cancer. Low vitamin D levels are also linked to depression, frequent illness, fatigue, back
-                            pain, slow wound healing, and muscle pain. Spend some time in the sun every day to keep your
-                            vitamin D levels up — just don’t let yourself get burned.
-                        </p>
-                        <a href="">
-                            <span>
-                                Read More
-                            </span>
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           
             <div class="col-sm-6 col-lg-3">
                 <div class="box">
                     <div class="img-box">
@@ -390,6 +341,32 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="../../../assets/img/vitamin.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5>
+                            You’ll increase your vitamin D levels
+                        </h5>
+                        <p>
+                            Walking outside exposes your skin to sunlight, which triggers your body to produce more
+                            vitamin D. Vitamin D deficiencies are common — even in sunny states like Florida — and can
+                            contribute to many diseases including Alzheimer’s disease, heart disease, and prostate
+                            cancer. Low vitamin D levels are also linked to depression, frequent illness, fatigue, back
+                            pain, slow wound healing, and muscle pain. Spend some time in the sun every day to keep your
+                            vitamin D levels up — just don’t let yourself get burned.
+                        </p>
+                        <a href="">
+                            <span>
+                                Read More
+                            </span>
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -431,7 +408,7 @@
             </div>
             <div class="col-md-6">
                 <div class="img-box">
-                    <img src="../../../assets/img/contact-img.jpg" alt="">
+                    <img class="sml-img" src="../../../assets/img/selfie.jpeg" alt="">
                 </div>
             </div>
         </div>
@@ -439,86 +416,6 @@
 </section>
 
 <!-- end contact section -->
-
-<!-- client section -->
-<section class="client_section layout_padding">
-    <div class="container">
-        <div class="heading_container heading_center">
-            <h2>
-                Testimonial
-            </h2>
-        </div>
-        <div class="carousel-wrap ">
-            <div class="owl-carousel client_owl-carousel">
-                <div class="item">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="../../../assets/img/selfie.jpeg" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Moshe Shlomi
-                                    </h5>
-                                    <h6>
-                                        Full-Stack Developer
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore
-                                et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse
-                                cillum
-                                dolore eu fugia
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="../../../assets/img/2.jpg" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <div class="client_info">
-                                <div class="client_name">
-                                    <h5>
-                                        Alina Hans
-                                    </h5>
-                                    <h6>
-                                        Customer
-                                    </h6>
-                                </div>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore
-                                et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                nisi ut
-                                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse
-                                cillum
-                                dolore eu fugia
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end client section -->
 
 <!-- footer section -->
 <footer class="footer_section">
