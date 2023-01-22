@@ -13,6 +13,7 @@ urlpatterns = [
     path('rejoinFromTrek/<int:trek_id>/', views.rejoin_from_trek),
 
     path('getComments/<int:trek_id>/', views.get_comments),
+    path('getUsernameFromID/<int:user_id>/', views.get_user_from_id),
     path('addComment/<int:trek_id>/', views.add_comment),
     path('deleteComment/<int:comment_id>/', views.delete_comment),
 

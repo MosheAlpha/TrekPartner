@@ -12,6 +12,16 @@ export interface Comment {
     content: string,
 }
 
+export class MyComment {
+    title: string;
+    content: string;
+
+    constructor(title: string, content: string) {
+        this.title = title;
+        this.content = content;
+    }
+}
+
 export interface registerForm {
     username: string,
     password: string,

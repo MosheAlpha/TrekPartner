@@ -15,6 +15,7 @@ import { AddTrekComponent } from './components/add-trek/add-trek.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TrekCommentComponent } from './components/trek-info/trek-comment/trek-comment.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     AddTrekComponent,
     HeaderComponent,
+    TrekCommentComponent,
   ],
   imports: [
     BrowserModule,
