@@ -1,9 +1,8 @@
+<!-- header section starts -->
+<app-header></app-header>
+<!-- end header section -->
 
-  <!-- header section starts -->
-  <app-header></app-header>
-  <!-- end header section -->
-
-   <!-- 
+<!-- 
   {
     "pk": 2,
     "name": "נחל השופט",
@@ -23,41 +22,42 @@
     "comments": []
   }
    -->
-   
-  <!-- shop section -->
-  <section class="about_section layout_padding" style="margin-bottom: 30px">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-5">
-          <div class="img-box">
-            <img [src]="userData[0]['image']" alt="" />
-          </div>
+
+<!-- shop section -->
+<section class="about_section layout_padding" style="margin-bottom: 30px">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-5">
+        <div class="img-box">
+          <img [src]="userData[0]['image']" alt="" />
         </div>
-        <div class="col-md-6 col-lg-7">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>{{userData[0]['name']}}</h2>
-            </div>
-            <p>
-             {{userData[0]['location']}}
-            </p>
-            <p>{{userData[0]['category'][0]['name']}}</p>
-            <p>{{userData[0]['length']}}</p>
-            <p>{{userData[0]['created']}}</p>
-            <p style="text-align: right;">{{userData[0]['description']}}</p>
+      </div>
+      <div class="col-md-6 col-lg-7">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>Name: {{ userData[0]["name"] }}</h2>
           </div>
+          <p>
+            Location: {{ userData[0]["location"] }}
+          </p>
+          <p>Difficulty level: {{ userData[0]["category"][0]["name"] }}</p>
+          <p>Length: {{ userData[0]["length"] }}</p>
+          <p>Date: {{ userData[0]["created"] }}</p>
+          <p>Description: <br></p>
+          <p style="text-align: right">{{ userData[0]["description"] }}</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- end shop section -->
+<!-- end shop section -->
 
-  <div class="container mt-5">
-    <div class="d-flex justify-content-center row">
-      <div class="col-md-8">
-        <div class="d-flex flex-column comment-section">
-          <!-- <div class="bg-white p-2">
+<div class="container mt-5" style="margin-bottom: 40px;">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-8">
+      <div class="d-flex flex-column comment-section">
+        <!-- <div class="bg-white p-2">
             <div class="d-flex flex-row user-info">
               <div class="d-flex flex-column justify-content-start ml-2">
                 <span class="d-block font-weight-bold name">Marry Andrews</span
@@ -73,100 +73,52 @@
               </p>
             </div>
           </div> -->
-          <div *ngFor="let item of comments">
-            <app-trek-comment [title]="item.title" [date]="item.created" [content]="item.content" [username]="item.user"></app-trek-comment>
+        <div class="comments-box" >
+          <div *ngFor="let item of comments" >
+            <app-trek-comment
+              [title]="item.title"
+              [date]="item.created"
+              [content]="item.content"
+              [username]="item.user"
+            ></app-trek-comment>
           </div>
-          <div class="bg-light p-2">
-            <label for="new-comment-title">Title:</label>
-            <input type="text" id="new-comment-title"  [(ngModel)]="newCommentTitle"
-            class="form-control ml-1 shadow-none textarea"
-            >
-            <div>Comment:</div>
-            <div class="d-flex flex-row align-items-start">
 
-              
-                <textarea id="new-comment-section"  [(ngModel)]="newComment"
-                class="form-control ml-1 shadow-none textarea"
-              ></textarea>
-            </div>
-            <div class="mt-2 text-right">
-              <button class="btn btn-primary btn-sm shadow-none" type="button" (click)="addComment()">Post comment</button>
-              <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button" (click)="clearTitleAndComment()">Cancel</button>
-            </div>
+        </div>
+        <div class="bg-light p-2">
+          <label for="new-comment-title">Title:</label>
+          <input
+            type="text"
+            id="new-comment-title"
+            [(ngModel)]="newCommentTitle"
+            class="form-control ml-1 shadow-none textarea"
+          />
+          <div>Comment:</div>
+          <div class="d-flex flex-row align-items-start">
+            <textarea
+              id="new-comment-section"
+              [(ngModel)]="newComment"
+              class="form-control ml-1 shadow-none textarea"
+            ></textarea>
+          </div>
+          <div class="mt-2 text-right">
+            <button
+              class="btn btn-primary btn-sm shadow-none"
+              type="button"
+              (click)="addComment()"
+            >
+              Post comment
+            </button>
+            <button
+              class="btn btn-outline-primary btn-sm ml-1 shadow-none"
+              type="button"
+              (click)="clearTitleAndComment()"
+            >
+              Cancel
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-3 footer-col">
-          <div class="footer_detail">
-            <h4>About</h4>
-            <p>
-              Necessary, making this the first true generator on the Internet.
-              It uses a dictionary of over 200 Latin words, combined with
-            </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 footer-col">
-          <div class="footer_contact">
-            <h4>Reach us at..</h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span> Bet Shemesh, Israel </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span> Call +972587980098 </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> folmoshe@gmail.com </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 footer-col">
-          <div class="footer_contact">
-            <h4>Subscribe</h4>
-            <form action="#">
-              <input type="text" placeholder="Enter email" />
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3 footer-col">
-          <div class="map_container">
-            <div class="map">
-              <div id="googleMap"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://github.com/MosheAlpha/TrekPartner">Moshe Shlomi</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-  <!-- footer section -->
+</div>
+<app-footer></app-footer>
