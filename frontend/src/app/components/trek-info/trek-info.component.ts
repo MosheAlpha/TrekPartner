@@ -80,6 +80,7 @@ export class TrekInfoComponent implements OnInit {
     this.backendService.addComment(tempComment, this.userData[0]['pk']).subscribe({
       next: (data) =>{
         console.log(data);
+        window.location.reload();
       },
       error: (error) =>{
         console.log(error);
