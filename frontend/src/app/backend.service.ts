@@ -42,13 +42,17 @@ export class BackendService {
     return this.http.post<any>(this.URL + '/api/rejoinFromTrek/' + String(id) + '/', {})
   }
 
-
+  getUsernameFromPK(id: number): Observable<any>{
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token'))};
+    return this.http.get<any>(this.URL + '/api/getUsernameFromID/' + String(id) + '/', {headers})
+  }
   getComments(id: number): Observable<any> {
     return this.http.get<any>(this.URL + '/api/getComments/' + String(id) + '/')
   }
 
   addComment(data: Comment, trek_id: number): Observable<any> {
-    return this.http.post<any>(this.URL + '/api/addComment/' + String(trek_id) + '/', data)
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
+    return this.http.post<any>(this.URL + '/api/addComment/' + String(trek_id) + '/', data, {headers})
   }
 
   deleteComment(trek_id: number, comment_id: number): Observable<any> {

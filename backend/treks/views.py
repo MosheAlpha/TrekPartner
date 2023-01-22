@@ -1,5 +1,5 @@
 from django.http import HttpResponse, QueryDict
-from .serializers import TrekSerializer, CommentSerializer
+from .serializers import TrekSerializer, CommentSerializer, MyUserSerializer
 from .models import Trek, Comment
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
@@ -74,8 +74,17 @@ def rejoin_from_trek(request, trek_id):
 @api_view(["GET"])
 @permission_classes((IsAuthenticated,))
 def get_comments(request, trek_id):
-    data = Comment.objects.filter(trek__id=trek_id)
-    deserialized_data = CommentSerializer(data, many=True)
+    specific_trek = Trek.objects.get(id=trek_id)
+    comments = specific_trek.comments.all()
+    # data = Comment.objects.filter(id=trek_id)
+    deserialized_data = CommentSerializer(comments, many=True)
+    return Response(deserialized_data.data, status=HTTP_200_OK)
+
+@api_view(["GET"])
+@permission_classes((IsAuthenticated,))
+def get_user_from_id(request, user_id):
+    specific_user = User.objects.filter(id=user_id).first()
+    deserialized_data = MyUserSerializer(specific_user)
     return Response(deserialized_data.data, status=HTTP_200_OK)
 
 
