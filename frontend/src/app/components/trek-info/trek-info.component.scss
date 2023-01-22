@@ -1,3 +1,17 @@
 header{
     padding-left: 45px;
 }
+.orange-button {
+    justify-self: center;
+    background-color: orange;
+    color: black;
+    min-width: 120px;
+    border:none; 
+    border-radius:10px;
+    min-height:30px;
+    font-weight: 100;
+}
+.orange-button:hover {
+    background-color: darkorange;
+    color: white;
+}

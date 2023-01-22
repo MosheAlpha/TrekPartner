@@ -45,10 +45,19 @@
             <p>{{userData[0]['length']}}</p>
             <p>{{userData[0]['created']}}</p>
             <p style="text-align: right;">{{userData[0]['description']}}</p>
+            <h3>Participants:</h3>
+            <ul>
+              <li *ngFor="let item of participants let i = index">
+                {{participants[i]}}
+              </li>
+            </ul>
+            <button class="orange-button" (click)="joinTrek()">Join Trek</button>
           </div>
+          
         </div>
       </div>
     </div>
+    
   </section>
 
   <!-- end shop section -->

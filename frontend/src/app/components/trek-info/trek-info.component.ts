@@ -14,6 +14,7 @@ import { MyComment } from 'src/app/trek';
 export class TrekInfoComponent implements OnInit {
   userData: any[] = [];
   comments: any[] = [];
+  participants: any[] = [];
   newComment: string = '';
   newCommentTitle: string = '';
   
@@ -31,7 +32,16 @@ export class TrekInfoComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.backendService.getTrekData(params['id']).subscribe({
         next: (data) => {
+          console.log(data)
           this.userData.push(data);
+          for (let i = 0; i < this.userData[0]['participants'].length; i++) {
+            const userID = this.userData[0]['participants'][i];
+            this.backendService.getUsernameFromPK(userID).pipe(first()).subscribe(
+              data => {
+                this.participants.push(data['username']);
+              }
+            )
+          }
           commentsOnTrek = this.userData[0]['comments'];
           for (let i = 0; i < commentsOnTrek.length; i++) {
             if (commentsOnTrek[i]['user'].length == 0) {
@@ -90,5 +100,36 @@ export class TrekInfoComponent implements OnInit {
   clearTitleAndComment(){
     this.newComment = '';
     this.newCommentTitle = '';
+    console.log(this.participants);
   }
+  joinTrek(){
+    // console.log("TODO");
+    let jwtToken: string | null = localStorage.getItem('access_token');
+    let userPK = this.decodeJWT(jwtToken)
+    // console.log(userPK);
+    // console.log(this.userData[0]['pk'])
+    this.backendService.joinToTrek(this.userData[0]['pk'], userPK).subscribe({
+      next: (data) => {
+        console.log(data);
+        window.location.reload();
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
+  decodeJWT(token: string | null): number {
+    if (token == null){
+      return -1;
+    }
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.user_id;
+    } catch (err) {
+      console.error(err);
+      return -1;
+    }
+  }
+  
 }
