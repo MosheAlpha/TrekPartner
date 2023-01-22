@@ -51,8 +51,8 @@
                 {{participants[i]}}
               </li>
             </ul>
-            <button class="darkgreen-button" (click)="joinTrek()">Join Trek</button>
-            <button class="orange-button" (click)="abortTrek()">Abort Trek</button>
+            <button *ngIf="!isParticipant" class="darkgreen-button" (click)="joinTrek()">Join Trek</button>
+            <button *ngIf="isParticipant" class="orange-button" (click)="abortTrek()">Abort Trek</button>
           </div>
           
         </div>

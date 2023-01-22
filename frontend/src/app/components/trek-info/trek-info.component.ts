@@ -17,7 +17,8 @@ export class TrekInfoComponent implements OnInit {
   participants: any[] = [];
   newComment: string = '';
   newCommentTitle: string = '';
-  
+  isParticipant: boolean = false;
+  participantsPK: number[] = [];
 
 
   constructor(
@@ -36,6 +37,12 @@ export class TrekInfoComponent implements OnInit {
           this.userData.push(data);
           for (let i = 0; i < this.userData[0]['participants'].length; i++) {
             const userID = this.userData[0]['participants'][i];
+            let jwtToken: string | null = localStorage.getItem('access_token');
+            let userPK = this.decodeJWT(jwtToken)
+            if (userPK === userID){
+              this.isParticipant = true;
+            }
+            this.participantsPK.push(userID);
             this.backendService.getUsernameFromPK(userID).pipe(first()).subscribe(
               data => {
                 this.participants.push(data['username']);
@@ -100,7 +107,8 @@ export class TrekInfoComponent implements OnInit {
   clearTitleAndComment(){
     this.newComment = '';
     this.newCommentTitle = '';
-    console.log(this.participants);
+    console.log(this.participantsPK);
+    console.log(this.isParticipant);
   }
   joinTrek(){
     let jwtToken: string | null = localStorage.getItem('access_token');
