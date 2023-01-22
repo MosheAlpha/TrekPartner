@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
+from django.core.mail import send_mail
 
 
 # done
@@ -110,5 +111,20 @@ def add_comment(request, trek_id):
 def delete_comment(request, comment_id):
     comment_to_remove = get_object_or_404(Comment, pk=comment_id)
     comment_to_remove.delete()
+    return Response(status=HTTP_200_OK)
+
+
+
+@api_view(["POST"])
+@permission_classes((IsAuthenticated,))
+def send_email(request):
+    data = QueryDict.dict(request.data)
+    send_mail(
+        data['subject'],
+        data['message'],
+        'folmoshe@gmail.com',
+        [data['email']],
+        fail_silently=False,
+    )
     return Response(status=HTTP_200_OK)
 
