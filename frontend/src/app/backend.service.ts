@@ -16,15 +16,18 @@ export class BackendService {
   }
 
   getAllTreks(): Observable<any> {
-    return this.http.get<any>(this.URL + '/api/getAllTreks/')
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
+    return this.http.get<any>(this.URL + '/api/getAllTreks/', {headers})
   }
 
   getTrekData(id: number): Observable<any> {
-    return this.http.get<any>(this.URL + '/api/getAllTreks/' + String(id) + '/')
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
+    return this.http.get<any>(this.URL + '/api/getAllTreks/' + String(id) + '/', {headers})
   }
 
   addTrek(data: Trek): Observable<any> {
-    return this.http.post<any>(this.URL + '/api/addTrek/', data)
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
+    return this.http.post<any>(this.URL + '/api/addTrek/', data, { headers })
   }
 
   deleteTrek(id: number): Observable<any> {

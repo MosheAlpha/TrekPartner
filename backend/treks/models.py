@@ -28,7 +28,7 @@ class Trek(models.Model):
     category = models.ManyToManyField(Category, related_name='treks')
     location = models.TextField()
     length = models.TextField()
-    image = models.ImageField(default='1.jpg')  
+    image = models.TextField()
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     participants = models.ManyToManyField(User, related_name='treks')

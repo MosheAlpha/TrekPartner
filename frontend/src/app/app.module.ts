@@ -12,6 +12,7 @@ import { TrekInfoComponent } from './components/trek-info/trek-info.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddTrekComponent } from './components/add-trek/add-trek.component';
+import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     AddTrekComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

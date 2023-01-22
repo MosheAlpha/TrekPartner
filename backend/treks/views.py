@@ -13,7 +13,7 @@ from rest_framework.status import HTTP_200_OK
 
 # done
 @api_view(["GET"])
-@permission_classes((IsAuthenticated,))
+# @permission_classes((IsAuthenticated,))
 def get_all_treks(request, trek_id=None):
     if trek_id == None:
         data = Trek.objects.all()

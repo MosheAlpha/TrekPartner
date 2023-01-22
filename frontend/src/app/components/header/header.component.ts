@@ -4,12 +4,12 @@ import { BackendService } from 'src/app/backend.service';
 import { LocalService } from 'src/app/local-storage.service';
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss'],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class MainPageComponent implements OnInit {
-  userData: any[] = [];
+export class HeaderComponent implements OnInit {
+
   isLoggedIn: boolean = false;
 
   constructor(
@@ -20,17 +20,6 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkifLogged()
-    this.backendService.getAllTreks().subscribe({
-      next: (data) => {
-        this.userData = data;
-        console.log(data)
-        this.isLoggedIn = true;
-      },
-      error: (error) => {
-        // this.router.navigateByUrl('/login');
-        this.isLoggedIn = false;
-      },
-    });
   }
 
   checkifLogged(){

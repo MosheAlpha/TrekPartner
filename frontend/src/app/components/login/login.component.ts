@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
         this.localStore.saveData('refresh_token', data.refresh)
         this.router.navigateByUrl('/main');
       },
-      error: error => {}
+      error: error => {
+        window.alert("Try again with correct username or password!")
+      }
     });
   }
 }

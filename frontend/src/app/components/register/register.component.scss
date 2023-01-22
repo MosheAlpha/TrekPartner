@@ -34,7 +34,7 @@ body {
   top: 50%;
   left: 50%;
   opacity: 1;
-  padding: 60px 50px 40px 50px;
+  padding: 34px 50px 25px 50px;
   width: 100%;
   background: #fff;
   border-radius: 10px;
@@ -90,11 +90,11 @@ body {
 
 .login-wrapper mat-card-header mat-card-title {
   font-size: 30px;
-  margin: 0;
+  margin: 0 0 30px;
 }
 
 .login-wrapper .mat-card {
-  padding: 40px 70px 50px;
+  min-width: 400px;
 }
 
 .login-wrapper .mat-stroked-button {
@@ -105,4 +105,9 @@ body {
 
 .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0.8375em 0;
+}
+
+.register {
+  text-align: center;
+  margin-top: 30px;
 }

@@ -1,0 +1,47 @@
+<!-- header section starts -->
+<header class="header_section">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" routerLink="/main">
+                <span>
+                    Trek Partner
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/main">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/treks"> Treks </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/about"> About </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/contact">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="user_option-box">
+                    <a [routerLink]="" (click)="logout()">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </a>
+                    <a routerLink="/addTrek" *ngIf="isLoggedIn">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                    <a [routerLink]="">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- end header section -->
