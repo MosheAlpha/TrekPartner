@@ -10,8 +10,25 @@ header{
     border-radius:10px;
     min-height:30px;
     font-weight: 100;
+    margin: 8px;
 }
 .orange-button:hover {
     background-color: darkorange;
     color: white;
+}
+
+.darkgreen-button {
+    justify-self: center;
+    background-color: darkgreen;
+    color: white;
+    min-width: 120px;
+    border:none; 
+    border-radius:10px;
+    min-height:30px;
+    font-weight: 200;
+    margin: 8px;
+}
+.darkgreen-button:hover {
+    background-color: darkgreen;
+    color: black;
 }

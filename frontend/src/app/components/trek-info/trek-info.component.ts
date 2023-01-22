@@ -103,11 +103,8 @@ export class TrekInfoComponent implements OnInit {
     console.log(this.participants);
   }
   joinTrek(){
-    // console.log("TODO");
     let jwtToken: string | null = localStorage.getItem('access_token');
     let userPK = this.decodeJWT(jwtToken)
-    // console.log(userPK);
-    // console.log(this.userData[0]['pk'])
     this.backendService.joinToTrek(this.userData[0]['pk'], userPK).subscribe({
       next: (data) => {
         console.log(data);
@@ -117,6 +114,22 @@ export class TrekInfoComponent implements OnInit {
         console.log(error);
       }
     })
+  }
+
+  abortTrek(){
+    console.log("TODO");
+    let jwtToken: string | null = localStorage.getItem('access_token');
+    let userPK = this.decodeJWT(jwtToken)
+    this.backendService.abortTrek(this.userData[0]['pk'], userPK).subscribe({
+      next: (data) => {
+        console.log(data);
+        window.location.reload();
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+    
   }
 
   decodeJWT(token: string | null): number {
