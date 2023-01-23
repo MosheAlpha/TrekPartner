@@ -811,3 +811,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .img-box{
   text-align: center;
 }
+
+
+@media  (max-width: 700px){
+  body, .btn-box, .heading_container, .d-flex, .footer_social{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}

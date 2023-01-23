@@ -4,7 +4,7 @@ header{
 .orange-button {
     justify-self: center;
     background-color: orange;
-    color: black;
+    color: #1c1010;
     min-width: 120px;
     border:none; 
     border-radius:10px;
@@ -36,4 +36,9 @@ header{
 .comments-box{
     max-height: 400px;
     overflow: auto;
+}
+
+.custom-comment-box{
+    width: 100%;
+    margin-top: 30px;
 }
