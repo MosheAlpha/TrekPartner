@@ -34,12 +34,14 @@ export class BackendService {
     return this.http.post<any>(this.URL + '/api/deleteTrek/' + String(id) + '/', {})
   }
 
-  joinToTrek(id: number): Observable<any> {
-    return this.http.post<any>(this.URL + '/api/joinToTrek/' + String(id) + '/', {})
+  joinToTrek(id: number, data: number): Observable<any> {
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token'))};
+    return this.http.post<any>(this.URL + '/api/joinToTrek/' + String(id) + '/', data, {headers})
   }
 
-  rejoinFromTrek(id: number): Observable<any> {
-    return this.http.post<any>(this.URL + '/api/rejoinFromTrek/' + String(id) + '/', {})
+  abortTrek(id: number, data: number): Observable<any> {
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token'))};
+    return this.http.post<any>(this.URL + '/api/abortTrek/' + String(id) + '/', data, {headers})
   }
 
   getUsernameFromPK(id: number): Observable<any>{
@@ -51,7 +53,7 @@ export class BackendService {
   }
 
   addComment(data: Comment, trek_id: number): Observable<any> {
-    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token')) };
+    const headers = { 'Authorization': 'Bearer ' + String(this.localStore.getData('access_token'))};
     return this.http.post<any>(this.URL + '/api/addComment/' + String(trek_id) + '/', data, {headers})
   }
 

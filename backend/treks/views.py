@@ -61,7 +61,7 @@ def join_to_trek(request, trek_id):
 
 @api_view(["POST"])
 @permission_classes((IsAuthenticated,))
-def rejoin_from_trek(request, trek_id):
+def abort_trek(request, trek_id):
     cur_user = request.user
     if cur_user.is_authenticated:
         cur_trek = get_object_or_404(Trek, pk=trek_id)

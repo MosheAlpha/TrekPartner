@@ -10,7 +10,7 @@ urlpatterns = [
     path('deleteTrek/<int:trek_id>/', views.delete_trek),
 
     path('joinToTrek/<int:trek_id>/', views.join_to_trek),
-    path('rejoinFromTrek/<int:trek_id>/', views.rejoin_from_trek),
+    path('abortTrek/<int:trek_id>/', views.abort_trek),
 
     path('getComments/<int:trek_id>/', views.get_comments),
     path('getUsernameFromID/<int:user_id>/', views.get_user_from_id),
