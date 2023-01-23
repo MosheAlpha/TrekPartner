@@ -50,4 +50,5 @@ export class MainPageComponent implements OnInit {
     this.localStore.clearData();
           this.router.navigateByUrl('/login');
   }
+  
 }

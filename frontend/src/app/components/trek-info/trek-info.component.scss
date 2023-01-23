@@ -32,3 +32,8 @@ header{
     background-color: darkgreen;
     color: black;
 }
+
+.comments-box{
+    max-height: 400px;
+    overflow: auto;
+}

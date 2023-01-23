@@ -8,40 +8,39 @@ import { Trek } from 'src/app/trek';
 @Component({
   selector: 'app-add-trek',
   templateUrl: './add-trek.component.html',
-  styleUrls: ['./add-trek.component.scss']
+  styleUrls: ['./add-trek.component.scss'],
 })
 export class AddTrekComponent implements OnInit {
-  trekForm = this.formBuilder.group({
+  newTrekForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
-    category: [0, [Validators.required]],
     location: ['', [Validators.required]],
     length: ['', [Validators.required]],
-    image: ['', [Validators.required]]
+    image: ['', [Validators.required]],
   });
 
-  constructor(private formBuilder: FormBuilder, private backendService: BackendService, private router: Router, private localStore: LocalService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private backendService: BackendService,
+    private router: Router,
+    private localStore: LocalService
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-  add(): void {
-    let formData = <Trek>this.trekForm.value;
-
-    // this.backendService.register(formData).subscribe({
-    //   next: data => {
-    //     this.backendService.login(String(formData.username), String(formData.password)).subscribe({
-    //       next: data => {
-    //         this.localStore.clearData()
-    //         this.localStore.saveData('access_token', data.access)
-    //         this.localStore.saveData('refresh_token', data.refresh)
-    //         this.router.navigateByUrl('/main');
-    //       },
-    //       error: error1 => { }
-    //     })
-    //   },
-    //   error: error => {
-    //     window.alert("Try again with correct data at all fields!")
-    //   }
-    // })
+  addTrek(): void {
+    let formData = <Trek>this.newTrekForm.value;
+    if (this.newTrekForm?.valid) {
+      this.backendService.addTrek(formData).subscribe({
+        next: (data) => {
+          window.alert('new trek was created successfully!!!');
+        },
+        error: (error) => {
+          window.alert('Try again with correct data at all fields!');
+        },
+      });
+    } else {
+      window.alert('Not all fields are full!');
+    }
   }
 }

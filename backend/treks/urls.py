@@ -16,6 +16,7 @@ urlpatterns = [
     path('getUsernameFromID/<int:user_id>/', views.get_user_from_id),
     path('addComment/<int:trek_id>/', views.add_comment),
     path('deleteComment/<int:comment_id>/', views.delete_comment),
+    path('sendEmail/', views.send_email),
 
 
 ]
