@@ -29,7 +29,9 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
+.angular/cache
+.angular/cache
+
 .sass-cache/
 /connect.lock
 /coverage
@@ -40,3 +42,14 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+backend/.idea/backend.iml
+backend/auth/__pycache__
+backend/.idea/inspectionProfiles/profiles_settings.xml
+__pycache__
+.backend\treks\__pycache__
+.__pycache__
+backend/.idea
+backend/.idea/misc.xml
+backend/.idea/modules.xml
+
