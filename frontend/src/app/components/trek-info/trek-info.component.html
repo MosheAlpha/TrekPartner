@@ -1,27 +1,6 @@
 <!-- header section starts -->
 <app-header></app-header>
 <!-- end header section -->
-
-<!-- 
-  {
-    "pk": 2,
-    "name": "נחל השופט",
-    "description": "הגבעות הירוקות, האוויר הצח, זרימת המים בחורף, הפריחות הקסומות ובעיקר אלו של האביב, כשכליל החורש מרהיב בוורוד וסגול – כל אלו הופכים את הנחל היפהפה הזה לפופולרי במיוחד, בעיקר בשבתות ובחגים. הטיול מתאים למשפחות, חלקו אף סלול לעגלות וכיסאות גלגלים, ותמצאו בו כמה מסלולים בני 2-4 שעות, ובהם גם אחד מעגלי",
-    "category": [
-        {
-            "pk": 2,
-            "name": "Middle"
-        }
-    ],
-    "location": "צפון",
-    "length": "3 קמ",
-    "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    "created": "2023-01-16",
-    "updated": "2023-01-16",
-    "participants": [],
-    "comments": []
-  }
-   -->
    
   <!-- shop section -->
   <section class="about_section layout_padding" style="margin-bottom: 30px">
@@ -35,14 +14,15 @@
         <div class="col-md-6 col-lg-7">
           <div class="detail-box">
             <div class="heading_container">
-              <h2>{{userData[0]['name']}}</h2>
+              <h2>Name: {{userData[0]['name']}}</h2>
             </div>
             <p>
-             {{userData[0]['location']}}
+             Location: {{userData[0]['location']}}
             </p>
-            <p>{{userData[0]['category'][0]['name']}}</p>
-            <p>{{userData[0]['length']}}</p>
-            <p>{{userData[0]['created']}}</p>
+            <p>Difficulty level: {{userData[0]['category'][0]['name']}}</p>
+            <p>Length: {{userData[0]['length']}}</p>
+            <p>Date: {{userData[0]['created']}}</p>
+            <p>Description: </p>
             <p style="text-align: right;">{{userData[0]['description']}}</p>
             <h3>Participants:</h3>
             <ul>
@@ -66,22 +46,6 @@
   <div class="d-flex justify-content-center row">
     <div class="col-md-8">
       <div class="d-flex flex-column comment-section">
-        <!-- <div class="bg-white p-2">
-            <div class="d-flex flex-row user-info">
-              <div class="d-flex flex-column justify-content-start ml-2">
-                <span class="d-block font-weight-bold name">Marry Andrews</span
-                ><span class="date text-black-50">Jan 2020</span>
-              </div>
-            </div>
-            <div class="mt-2">
-              <p class="comment-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-          </div> -->
         <div class="comments-box" >
           <div *ngFor="let item of comments" >
             <app-trek-comment
